@@ -55,7 +55,7 @@ while True:
         print(f"Student {i}: ")
         name = input("Enter the Name of student: ")
         student_class = int(input("Enter Class of student: "))
-        roll = int(input("Enter the Roll number:  "))
+        roll = int(input("Enter the Roll number: "))
         total_marks = int(input("Enter total marks of student (out of 600): "))
 
         s1 = Student(name, roll, total_marks, student_class)
@@ -75,6 +75,7 @@ while True:
            print("Something went wrong, Exiting to main menu....")
            break
    elif choice == 2:
+      print('No Specific Order....')
       for i,student in enumerate(data_list, start=1):
          print(f"""{i}. Name of the student: {student.name} Class: {student.student_class}
 Roll Number: {student.roll} Total Marks of the student (out of 600 marks): {student.total_marks}""")
@@ -109,11 +110,12 @@ Roll Number: {student.roll} Total Marks of the student (out of 600 marks): {stud
       while True:
        print('''1. Filter data by name of student
 2. Filter data by class of student
+3. Exit to main menu
 ''')  
        try:
         filter_choice = int(input("Enter your choice (1 to 2): "))
         if filter_choice == 1:
-           name = input('Enter name of student: ')
+           name = input('Enter name of student: ').lower()
            found = False
            for student in data_list:
               if student.name == name:
@@ -123,16 +125,25 @@ Class: {student.student_class}, Roll Number: {student.roll}, Total Marks(out of 
            if not found:
               print('No matches found for that student')
         elif filter_choice == 2:
-           st_class = int(input('Enter class of student: '))
-           found = False
-           for student in data_list:
-              if student.student_class == st_class:
-                 print(f"""Name of student: {student.name}
+           try:
+             st_class = int(input('Enter class of student: '))
+             if st_class >0:
+               print(f'Students data based on class {st_class}')
+               found = False
+               for i,student in enumerate(data_list):
+                 if student.student_class == st_class:
+                  print(f"""{i}. Name of student: {student.name}
 Class: {student.student_class}, Roll Number: {student.roll}, Total Marks(out of 600): {student.total_marks}""")
                  found = True
-           if not found:
-              print('No student data found for that class')
-              
+               if not found:
+                print('No student data found for that class')
+             else:
+              print('Please enter correct class')
+           except ValueError:
+               print("Please enter correct class of the student")    
+        elif filter_choice == 3:
+           print('Exiting to main menu....')
+           break
         else:
            print('Wrong input.. please enter correct choice')
        except ValueError:
