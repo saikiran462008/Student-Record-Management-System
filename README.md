@@ -1,6 +1,6 @@
 # Student-Record-Management-System
-My first Python project
-A beginner-friendly Python project that allows you to add, view, and store student records using a `.txt` file.
+1. My first Python project
+2. A beginner-friendly Python project that allows you to add, view, and store student records using a `.txt` file.
 
 ---
 
@@ -16,10 +16,10 @@ A beginner-friendly Python project that allows you to add, view, and store stude
 ---
 
 ## Features: 
-Add new student records
-View all saved records
-File handling using .txt file
-Beginner-level clean Python code
+1. Add new student records
+2. View all saved records
+3. File handling using .txt file
+4. Beginner-level clean Python code
 
 ## How to Run: 
 1. **Clone or download** this repository
